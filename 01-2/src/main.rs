@@ -7,7 +7,8 @@ fn main() {
 	let depths = io::BufReader::new(file)
 		.lines()
 		.map(|line| line.unwrap().parse::<i32>().unwrap())
-		// This is the only change from previous - now we are grouping by 3 and summing before comparing
+		// This is the only change from previous - now we are grouping by 3 and summing before comparing.
+		// It's funny that I just happened to pick the sliding window technique when the second project of the day involved a sliding window.
 		.tuple_windows()
 		// Unfortunately, there doesn't seem to be a great syntax for summing over Tuples,
 		// which makes sense (since tuples are for heterogeneous data) and itertools is only using tuples for convenience.
