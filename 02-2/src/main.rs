@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{self, BufRead};
+use std::io::{self, BufRead, Read};
 
 fn main() {
 	let file = File::open("../02-1/input.txt").expect("Could not read input.txt");
@@ -7,6 +7,7 @@ fn main() {
 	let mut depth = 0;
 	let mut aim = 0;
 	io::BufReader::new(file)
+		.by_ref()
 		.lines()
 		.map(|line| {
 			line.unwrap()
